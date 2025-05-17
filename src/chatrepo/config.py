@@ -18,7 +18,6 @@ DATA_DIR = BASE_DIR / "data"
 
 class Settings(BaseSettings):
     openai_api_key: str = Field(..., env="OPENAI_API_KEY")
-    repo_url: str = Field(..., env="REPO_URL")
     chroma_collection: str = Field("repo_index", env="CHROMA_COLLECTION")
     llm_model: str = Field("gpt-4o", env="LLM_MODEL")
     embedding_model: str = Field("text-embedding-3-small", env="EMBEDDING_MODEL")
