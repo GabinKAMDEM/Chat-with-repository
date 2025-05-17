@@ -1,46 +1,10 @@
-rag_explorer_project/
-├── data/
-│   ├── raw/                # Dépôt git cloné (par ex. via scripts/clone_repo.py)
-│   └── processed/          # Chunks extraits, embeddings sérialisés, index vectoriel
-│
-├── docs/                   # Documentation métier et technique
-│   ├── architecture.md     # Diagramme d’architecture RAG
-│   ├── user_guide.md       # Mode d’emploi de l’outil
-│   └── dev_guide.md        # Guide de contribution et de déploiement
-│
-├── notebooks/              # Explorations, prototypage
-│   └── 01_data_ingestion.ipynb
-│
-├── scripts/                # Scripts utilitaires indépendants
-│   └── clone_repo.py       # Cloner le dépôt dans data/raw
-│
-├── src/                    # Code source du package
-│   └── rag_explorer/       # Nom du module Python
-│       ├── __init__.py
-│       │
-│       ├── loader.py       # load_project_documents + gestion d’erreurs
-│       ├── splitter.py     # découpe AST / TextSplitter
-│       ├── embedder.py     # wrapper embeddings (OpenAI, HuggingFace…)
-│       ├── indexer.py      # construction et mise à jour du vector store
-│       ├── retriever.py    # encapsule la recherche kNN + BM25 hybride
-│       ├── rag_chain.py    # définition du chain LangChain / AutoGen
-│       ├── api.py          # FastAPI / Streamlit pour exposer l’agent
-│       └── utils.py        # fonctions transverses (logging, config loader…)
-│
-├── tests/                  # Suite de tests
-│   ├── unit/               # tests unitaires
-│   │   ├── test_loader.py
-│   │   ├── test_splitter.py
-│   │   └── …
-│   └── integration/        # tests bout en bout
-│       └── test_rag_chain.py
-│
-├── .github/                # CI/CD (GitHub Actions)
-│   └── workflows/
-│       └── ci.yml
-│
-├── .gitignore              # pour ignorer data/, .venv, __pycache__, etc.
-├── Dockerfile              # containerisation de l’app
-├── README.md               # présentation, installation, usage
-├── requirements.txt        # dépendances pip
-└── pyproject.toml          # (optionnel) configuration Poetry / setuptools
+# Chat-with-Repository
+
+> RAG chatbot pour interroger n’importe quel dépôt Git.
+
+```bash
+# local
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # renseigner OPENAI_API_KEY
+streamlit run app/app.py
