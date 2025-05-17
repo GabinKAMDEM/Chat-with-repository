@@ -13,4 +13,5 @@ COPY . /app
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8501
 
+RUN pip install -e .
 CMD ["streamlit", "run", "app/app.py", "--server.port", "8501", "--server.headless=true"]
