@@ -1,3 +1,6 @@
+"""
+Build and populate the vector store index from repository content.
+"""
 from chromadb import PersistentClient
 from langchain_community.embeddings import OpenAIEmbeddings
 from .config import DATA_DIR, settings
