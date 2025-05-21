@@ -5,11 +5,36 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "chatrepo"
 version = "0.1.0"
-description = "Chat-with-Repository backend"
 requires-python = ">=3.10"
+
+dependencies = [
+  # RAG core
+  "langchain>=0.2",
+  "langchain-community>=0.2",
+  "langchain-openai>=0.1",
+  "langchain-chroma>=0.1",
+  "langgraph>0.2.27",
+  "chromadb>=0.4",
+  "openai>=1.25",
+  "tiktoken>=0.6",
+  # Tooling
+  "gitpython>=3.1",
+  "python-dotenv>=1.0",
+  "pydantic>=2.7",
+  "structlog>=24.1",
+  # Frontend
+  "streamlit>=1.35",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "black>=24.4",
+  "ruff>=0.4",
+  "isort>=5.13",
+  "mypy>=1.10",
+  "pre-commit>=3.7",
+]
 
 [tool.setuptools.package-dir]
 "" = "src"
-
-[tool.setuptools.packages.find]
-where = ["src"]
