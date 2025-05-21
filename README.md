@@ -22,14 +22,15 @@
 git clone https://github.com/you/chat-with-repo.git
 cd chat-with-repo
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
 
 cp .env.example .env          # fill OPENAI_API_KEY
+pip install -e .
 
 streamlit run app/app.py      # open http://localhost:8501
 
-Paste a Git URL, click Index & start chat, wait a few seconds, enjoy the chat.
 ```
+Paste a Git URL, click Index & start chat, wait a few seconds, enjoy the chat.
+
 ---
 ##  Quick start (Docker)
 ```bash
@@ -38,9 +39,10 @@ docker compose up --build
 ```
 ## Environment variables
 Key and Description
+
 ```text
 OPENAI_API_KEY	Your OpenAI key (required).
 LLM_MODEL	Chat model default gpt-4.o-mini.
-EMBEDDING_MODEL	Embeddings, default text-embedding-ada-002.
+EMBEDDING_MODEL	Embeddings, default text-embedding-3-small.
 CHROMA_COLLECTION	Collection name (default repo_index).
-```text
+```
