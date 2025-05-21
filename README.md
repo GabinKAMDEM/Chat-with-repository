@@ -32,11 +32,6 @@ streamlit run app/app.py      # open http://localhost:8501
 Paste a Git URL, click Index & start chat, wait a few seconds, enjoy the chat.
 
 ---
-##  Quick start (Docker)
-```bash
-docker compose up --build
-
-```
 ## Environment variables
 Key and Description
 
